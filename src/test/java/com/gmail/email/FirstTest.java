@@ -25,17 +25,14 @@ public class FirstTest {
     }
 
     @Test // Marking this method as part of the test
-    public void gotoSeleniumWikiPage() {
-        // Go to the Wikipedia home page
-        driver.get("https://en.wikipedia.org/");
-        // Find the text input element by its id and type "Selenium"
-        driver.findElement(By.id("searchInput")).sendKeys("Selenium");
-        // Click search button
-        driver.findElement(By.id("searchButton")).click();
-        // Get text from header of the Selenium page
-        String header = driver.findElement(By.id("firstHeading")).getText();
-        // Verify that header equals "Selenium"
-        Assert.assertEquals(header, "Selenium");
+    public void gotoHelloWorldPage() {
+        // Go to the Hello World home page
+        driver.get("http://172.26.24.141:48080/helloworld/");
+
+        // Get text from heading of the Hello World page
+        String header = driver.findElement(By.tagName("h2")).getText();
+        // Verify that header equals "Hello World!"
+        Assert.assertEquals(header, "Hello World!");
 
     }
 
