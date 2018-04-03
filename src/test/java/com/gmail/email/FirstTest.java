@@ -26,7 +26,7 @@ public class FirstTest {
     @Test // Marking this method as part of the test
     public void gotoHelloWorldPage() {
         // Go to the Hello World home page
-        driver.get("http://helloworld-app:48080/helloworld/");
+        driver.get("http://helloworld-app:8080/helloworld/");
 
         // Get text from heading of the Hello World page
         String header = driver.findElement(By.tagName("h2")).getText();
