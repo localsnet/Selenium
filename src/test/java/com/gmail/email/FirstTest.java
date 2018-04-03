@@ -19,14 +19,14 @@ public class FirstTest {
     public static void openBrowser() throws MalformedURLException {
 
         driver = new RemoteWebDriver(
-                new URL("http://172.26.24.141:4444/wd/hub"),
+                new URL("http://firefox:4444/wd/hub"),
                 DesiredCapabilities.firefox());
     }
 
     @Test // Marking this method as part of the test
     public void gotoHelloWorldPage() {
         // Go to the Hello World home page
-        driver.get("http://172.26.24.141:48080/helloworld/");
+        driver.get("http://helloworld-app:48080/helloworld/");
 
         // Get text from heading of the Hello World page
         String header = driver.findElement(By.tagName("h2")).getText();
