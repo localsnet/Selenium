@@ -1,27 +1,26 @@
 package com.gmail.email;
 
-import java.util.concurrent.TimeUnit;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 
 public class FirstTest {
-    private static ChromeDriver driver;
-    WebElement element;
+    private static RemoteWebDriver driver;
 
     @BeforeClass
-    public static void openBrowser(){
+    public static void openBrowser() throws MalformedURLException {
 
-        ChromeOptions ChromeOptions = new ChromeOptions();
-        ChromeOptions.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
-        driver = new ChromeDriver(ChromeOptions);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver = new RemoteWebDriver(
+                new URL("http://172.26.24.141:4444/wd/hub"),
+                DesiredCapabilities.firefox());
     }
 
     @Test // Marking this method as part of the test
